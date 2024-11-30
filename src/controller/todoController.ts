@@ -79,3 +79,23 @@ export const getAllTodos = async (req: Request, res: Response) => {
     });
   };
   
+  
+  // get todo by id
+  export const getTodoById = async(req: Request, res: Response) => {
+    const { id } = req.params;
+    if(!id){
+      return res.status(400).json({
+        message: "Id is required",
+      });
+    }
+    const todo = await Todo.findByPk(id);
+    if (!todo) {
+      return res.status(404).json({
+        message: "Todo not found",
+    })
+  }
+    res.status(200).json({
+      message: "Todo fetched successfully",
+      data:todo
+    });
+  };
