@@ -3,8 +3,13 @@ import { Todo } from "../model";
 import { v4 as uuidv4 } from "uuid";
 
 // create todo
-export const createTodo = async (req: Request, res: Response) => {
+export const createTodo = async (req: Request, res: Response): Promise<void> => {
   const { title } = req.body;
+  if (!title) {
+    res.status(400).json({
+      message: "Title is required",
+    });
+  }
   const todo = await Todo.create({
     title: title,
     id: uuidv4(),
@@ -17,7 +22,7 @@ export const createTodo = async (req: Request, res: Response) => {
 };
 
 // get all todos
-export const getAllTodos = async (req: Request, res: Response) => {
+export const getAllTodos = async (req: Request, res: Response): Promise<void> => {
     const todos = await Todo.findAll();
     if (todos.length === 0) {
       res.status(201).json({
@@ -33,10 +38,10 @@ export const getAllTodos = async (req: Request, res: Response) => {
 
  
   // update todo
-  export const updateTodo = async(req: Request, res: Response) => {
+  export const updateTodo = async(req: Request, res: Response): Promise<void> => {
     const { id } = req.params;
     if(!id){
-      return res.status(400).json({
+      res.status(400).json({
         message: "Id is required",
       });
     }
@@ -51,7 +56,7 @@ export const getAllTodos = async (req: Request, res: Response) => {
     console.log(todo);
     
     if (todo === 0) {
-      return res.status(404).json({
+      res.status(404).json({
         message: "Todo not found",
       });
     }
@@ -61,16 +66,16 @@ export const getAllTodos = async (req: Request, res: Response) => {
   };
 
   // delete todo
-  export const deleteTodo = (req: Request, res: Response) => {
+  export const deleteTodo =async (req: Request, res: Response): Promise<void> => {
     const { id } = req.params;
     if(!id){
-      return res.status(400).json({
+     res.status(400).json({
         message: "Id is required",
       });
     }
-    const todo = Todo.destroy({ where: { id } });
+    const todo = await Todo.destroy({ where: { id } });
     if (!todo) {
-      return res.status(404).json({
+      res.status(404).json({
         message: "Todo not found",
       });
     }
@@ -81,16 +86,16 @@ export const getAllTodos = async (req: Request, res: Response) => {
   
   
   // get todo by id
-  export const getTodoById = async(req: Request, res: Response) => {
+  export const getTodoById = async(req: Request, res: Response): Promise<void> => {
     const { id } = req.params;
     if(!id){
-      return res.status(400).json({
+      res.status(400).json({
         message: "Id is required",
       });
     }
     const todo = await Todo.findByPk(id);
     if (!todo) {
-      return res.status(404).json({
+      res.status(404).json({
         message: "Todo not found",
     })
   }
