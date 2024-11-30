@@ -59,4 +59,23 @@ export const getAllTodos = async (req: Request, res: Response) => {
       message: "Todo updated successfully",
     });
   };
+
+  // delete todo
+  export const deleteTodo = (req: Request, res: Response) => {
+    const { id } = req.params;
+    if(!id){
+      return res.status(400).json({
+        message: "Id is required",
+      });
+    }
+    const todo = Todo.destroy({ where: { id } });
+    if (!todo) {
+      return res.status(404).json({
+        message: "Todo not found",
+      });
+    }
+    res.status(200).json({
+      message: "Todo deleted successfully",
+    });
+  };
   
