@@ -3,7 +3,7 @@ import db from "../config/database.config";
 
 
 interface TodoAttriutes {
-    id: string;,
+    id: string,
     title: string,
     completed: boolean,
 }
