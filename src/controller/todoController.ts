@@ -30,4 +30,33 @@ export const getAllTodos = async (req: Request, res: Response) => {
       data: todos,
     });
   };
-   
+
+ 
+  // update todo
+  export const updateTodo = async(req: Request, res: Response) => {
+    const { id } = req.params;
+    if(!id){
+      return res.status(400).json({
+        message: "Id is required",
+      });
+    }
+    const { title, completed } = req.body;
+    const [todo] =await Todo.update(
+      {
+        title,
+        completed,
+      },
+      { where: { id } }
+    );
+    console.log(todo);
+    
+    if (todo === 0) {
+      return res.status(404).json({
+        message: "Todo not found",
+      });
+    }
+    res.status(200).json({
+      message: "Todo updated successfully",
+    });
+  };
+  
