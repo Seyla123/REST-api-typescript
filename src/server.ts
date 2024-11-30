@@ -1,9 +1,5 @@
 import db from './config/database.config';
 import app from './app';
-import dotenv from 'dotenv';
-
-// Load environment variables based on NODE_ENV
-dotenv.config();
 
 const PORT = 8000;
 

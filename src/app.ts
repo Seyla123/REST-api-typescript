@@ -1,26 +1,23 @@
 import express, { Request, Response } from 'express';
-import db from './config/database.config';
 import morgan from 'morgan';
+import dotenv from 'dotenv';
+import routes from './routes';
 
-db.sync().then(()=>{
-    console.log('connected to database');
-})
-
+dotenv.config();
 const app = express();
 
-if (process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'test') {
+if (process.env.NODE_ENV == 'development') {
     app.use(morgan('dev'));
-  }
+}
+
   
 app.use(express.json());
 
-app.post('/api/todos', (req: Request, res: Response) => {
-    const body = req.body;
-    res.send(body);
-})
 app.get('/', (req: Request, res: Response) => {
     res.send("Welcome to my API");
 });
+
+app.use('/api/v1', routes)
 
 
 export default app;
