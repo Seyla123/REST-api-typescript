@@ -15,3 +15,19 @@ export const createTodo = async (req: Request, res: Response) => {
     data: todo,
   });
 };
+
+// get all todos
+export const getAllTodos = async (req: Request, res: Response) => {
+    const todos = await Todo.findAll();
+    if (todos.length === 0) {
+      res.status(201).json({
+        message: "No todos found",
+        data: [],
+      });
+    }
+    res.status(200).json({
+      message: "All todos fetched successfully",
+      data: todos,
+    });
+  };
+   
