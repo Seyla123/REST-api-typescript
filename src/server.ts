@@ -1,17 +1,19 @@
-import express, { Request, Response } from 'express';
 import db from './config/database.config';
+import app from './app';
+import dotenv from 'dotenv';
 
-db.sync().then(()=>{
-    console.log('connected to database');
-})
+// Load environment variables based on NODE_ENV
+dotenv.config();
 
-const app = express();
-const port = 8000;
+const PORT = 8000;
 
-app.get('/', (req: Request, res: Response) => {
-    res.send("Welcome to my API");
+db.sync().then(() => {
+    console.log('Connected to database');
 });
 
-app.listen(port, () => {
-    console.log(`Server is running on port ${port}`);
+app.listen(PORT, () => {
+    console.log('Server is running on port 8000');
+    console.log(
+        `Server is running on port ${PORT} in ${process.env.NODE_ENV} mode...`
+      );
 });
