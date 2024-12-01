@@ -18,5 +18,3 @@ Thumbs.db
 # Ignore IDE specific files
 .vscode/
 .idea/
-database.sqlite
-*.sqlite
