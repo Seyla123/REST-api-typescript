@@ -2,21 +2,21 @@
     "version": 2,
     "builds": [
       {
-        "src": "dist/server.js",
-        "use": "@vercel/node"
+        "src": "src/server.ts",
+        "use": "@vercel/node",
+        "config": {
+          "includeFiles": ["dist/**/*", "node_modules/**/*"]
+        }
       }
     ],
-    "env": {
-      "NODE_ENV": "production"
-    },
-    "hooks": {
-      "build": "npm run build"
-    },
     "routes": [
       {
         "src": "/(.*)",
         "dest": "/dist/server.js"
       }
-    ]
+    ],
+    "env": {
+      "NODE_ENV": "production"
+    }
   }
   
