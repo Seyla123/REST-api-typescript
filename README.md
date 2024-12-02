@@ -4,6 +4,14 @@ This project is designed for **learning how to build a REST API with TypeScript*
 
 ---
 
+## Deployment
+
+The project is deployed and accessible at the following link:
+
+**[API link](https://rest-api-typescript-three.vercel.app/)** 
+
+---
+
 ## Learning Objectives
 
 - Understand how to build a RESTful API with **Node.js** and **Express**.
