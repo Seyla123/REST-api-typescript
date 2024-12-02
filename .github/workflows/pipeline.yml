@@ -73,10 +73,11 @@ jobs:
 
           # Verify the contents of the directory
           ls -la
+          pwd
 
           # Deploy the `dist` folder to the EC2 instance
           echo "Deploying to EC2 staging..."
-          mdkir seyla
+          mkdir seyla
           # rsync -avz -e "ssh -i private_key.pem" ./dist/ ubuntu@$DEPLOY_HOST:$DIST_DEPLOY_PATH
 
           # Run verification commands on the remote server
