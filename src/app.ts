@@ -14,7 +14,7 @@ if (process.env.NODE_ENV == 'development') {
 app.use(express.json());
 
 app.get('/', (req: Request, res: Response) => {
-    res.send("Welcome to my API");
+    res.send("Welcome to my API 1");
 });
 
 app.use('/api/v1', routes)
