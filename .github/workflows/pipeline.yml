@@ -64,6 +64,7 @@ jobs:
           chmod 400 private_key.pem  # Set the appropriate permissions for the key
           mkdir -p ~/.ssh
           chmod 700 ~/.ssh
+          ls -la
           ssh-keyscan -H $DEPLOY_HOST >> ~/.ssh/known_hosts
           echo "Deploying to EC2 staging..."
           rsync -avz -e "ssh -i private_key.pem" ./dist/ ubuntu@$DEPLOY_HOST:$DIST_DEPLOY_PATH
