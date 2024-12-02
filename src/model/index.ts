@@ -12,7 +12,7 @@ export class Todo extends Model<TodoAttriutes> { };
 Todo.init(
     {
         id: {
-            type: DataTypes.UUIDV4,
+            type: DataTypes.STRING,
             primaryKey: true,
             allowNull: false,
         },
