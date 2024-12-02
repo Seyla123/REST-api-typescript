@@ -78,7 +78,7 @@ jobs:
 
           # Deploy the `dist` folder to the EC2 instance
           echo "Deploying to EC2 staging..."
-          ls -la ./home/runner/work/REST-api-typescript
+          ls -la /home/runner/work/REST-api-typescript/REST-api-typescript
           # rsync -avz -e "ssh -i private_key.pem" ./dist/ ubuntu@$DEPLOY_HOST:$DIST_DEPLOY_PATH
 
           # Run verification commands on the remote server
