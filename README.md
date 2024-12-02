@@ -1,6 +1,6 @@
-# Todos REST API with Node.js, TypeScript, Sequelize, and SQLite
+# Todos REST API with Node.js, TypeScript, Sequelize, and Postgres
 
-This project is designed for **learning how to build a REST API with TypeScript**, using tools like **Node.js**, **Express**, **Sequelize**, and **SQLite**. It demonstrates how to structure a backend project, handle CRUD operations, and integrate TypeScript for type safety.
+This project is designed for **learning how to build a REST API with TypeScript**, using tools like **Node.js**, **Express**, **Sequelize**, and **Postgres**. It demonstrates how to structure a backend project, handle CRUD operations, and integrate TypeScript for type safety.
 
 ---
 
@@ -8,7 +8,7 @@ This project is designed for **learning how to build a REST API with TypeScript*
 
 - Understand how to build a RESTful API with **Node.js** and **Express**.
 - Learn how to use **TypeScript** for better type safety in backend development.
-- Use **Sequelize** as an ORM to interact with an SQLite database.
+- Use **Sequelize** as an ORM to interact with an Postgres database.
 - Practice building CRUD operations for managing resources.
 
 ---
@@ -18,7 +18,7 @@ This project is designed for **learning how to build a REST API with TypeScript*
 - Create, read, update, and delete (CRUD) todos.
 - TypeScript integration for enhanced code quality.
 - Organized project structure for maintainability.
-- SQLite database setup for lightweight development.
+- Postgres database setup for development.
 - Sequelize ORM for database interactions.
 
 ---
@@ -40,7 +40,6 @@ REST-API-TYPESCRIPT
 │   ├── app.ts                     # Express app setup
 │   └── server.ts                  # Server entry point
 ├── .env                           # Environment variables
-├── database.sqlite                # SQLite database file
 ├── package.json                   # Project dependencies
 ├── tsconfig.json                  # TypeScript configuration
 └── README.md                      # Documentation
