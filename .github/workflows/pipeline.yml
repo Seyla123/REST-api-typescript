@@ -52,7 +52,7 @@ jobs:
         env:
           SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
           DEPLOY_HOST: ${{ secrets.EC2_PUBLIC_IP }}
-          DIST_DEPLOY_PATH: /home/ubuntu/deploy
+          DIST_DEPLOY_PATH: /home/ubuntu/deploy/dist
         run: |
           set -e
           
