@@ -54,6 +54,9 @@ jobs:
           DIST_DEPLOY_PATH: /home/ubuntu/deploy
         run: |
           set -e
+          echo "SSH_PRIVATE_KEY: $SSH_PRIVATE_KEY"
+          echo "DEPLOY_HOST: $DEPLOY_HOST"
+          echo "DIST_DEPLOY_PATH: $DIST_DEPLOY_PATH"
           apt-get update -y && apt-get install -y openssh-client rsync   # Ensure SSH client is available
           eval $(ssh-agent -s)  # Start SSH agent
           echo "$SSH_PRIVATE_KEY" | tr -d '\r' > private_key.pem  # Create key file
