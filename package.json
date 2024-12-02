@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "ts-node-dev --respawn src/server.ts ",
     "build": "tsc",
-    "start": "node dist/server.js",
+    "start": "node dist/server.js --host localhost",
     "test":"node dist/test.js",
     "vercel-build": "npm ci && npm install pg && npm run build"
   },
