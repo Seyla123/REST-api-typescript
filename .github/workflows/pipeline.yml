@@ -36,7 +36,7 @@ jobs:
           name: dist
           path: ./dist/upload
       - name: Verify dist contents
-        run: ls -la dist/
+        run: ls -la 
 
   deploy:
     runs-on: ubuntu-latest
