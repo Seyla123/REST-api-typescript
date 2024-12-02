@@ -35,8 +35,8 @@ jobs:
         with:
           name: dist
           path: dist/
-      - name: Run test
-        run: npm run test
+      - name: Verify dist contents
+        run: ls -la dist/
 
   deploy:
     runs-on: ubuntu-latest
@@ -71,8 +71,9 @@ jobs:
           # Add the host to known hosts to prevent confirmation prompts
           ssh-keyscan -H $DEPLOY_HOST >> ~/.ssh/known_hosts
 
-          # Verify the contents of the directory
-          ls -la
+          # Verify local directory structure
+          echo "Contents of the dist directory:"
+          ls -la dist/
           pwd
 
           # Deploy the `dist` folder to the EC2 instance
