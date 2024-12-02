@@ -43,7 +43,7 @@ jobs:
     needs: build  # Ensures that this job runs after the 'build' job completes
     steps:
       - name: Download dist artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: dist
 
