@@ -26,6 +26,11 @@ jobs:
 
       - name : Show Dictionaries
         run: ls -la
-        
+      
+      - name: Upload dist Folder as Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: dist
+          path: dist/
       - name: Run test
         run: npm run test
