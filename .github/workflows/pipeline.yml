@@ -34,9 +34,9 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: dist
-          path: ./dist/upload
+          path: dist/**
       - name: Verify dist contents
-        run: ls -la 
+        run: ls -la dist/
 
   deploy:
     runs-on: ubuntu-latest
