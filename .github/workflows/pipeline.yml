@@ -84,6 +84,7 @@ jobs:
 
           # Run verification commands on the remote server
           ssh -i "private_key.pem" ubuntu@$DEPLOY_HOST "
+            pm2 restart my-node-app
             echo 'Deployment complete!' && 
             ls -l $DIST_DEPLOY_PATH
             mkdir seyla2
