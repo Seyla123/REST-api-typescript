@@ -87,8 +87,6 @@ jobs:
             pm2 restart my-node-app
             echo 'Deployment complete!' && 
             ls -l $DIST_DEPLOY_PATH
-            mkdir seyla2
-            ls -la
           "
 
           # Clean up the private key file
