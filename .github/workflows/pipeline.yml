@@ -58,12 +58,13 @@ jobs:
           echo "DEPLOY_HOST: $DEPLOY_HOST"
           echo "DIST_DEPLOY_PATH: $DIST_DEPLOY_PATH"
           sudo apt-get update -y 
-           sudo apt-get install -y openssh-client rsync   # Ensure SSH client is available
+          sudo apt-get install -y openssh-client rsync   # Ensure SSH client is available
           eval $(ssh-agent -s)  # Start SSH agent
           echo "$SSH_PRIVATE_KEY" | tr -d '\r' > private_key.pem  # Create key file
           chmod 400 private_key.pem  # Set the appropriate permissions for the key
           mkdir -p ~/.ssh
           chmod 700 ~/.ssh
+          ssh-keyscan -H $DEPLOY_HOST >> ~/.ssh/known_hosts
           echo "Deploying to EC2 staging..."
           rsync -avz -e "ssh -i private_key.pem" ./dist/ ubuntu@$DEPLOY_HOST:$DIST_DEPLOY_PATH
           ssh -i "private_key.pem" ubuntu@$DEPLOY_HOST "
