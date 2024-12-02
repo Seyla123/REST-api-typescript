@@ -73,7 +73,7 @@ jobs:
 
           # Verify local directory structure
           echo "Contents of the dist directory:"
-          ls -la dist/
+          ls -la 
           pwd
 
           # Deploy the `dist` folder to the EC2 instance
