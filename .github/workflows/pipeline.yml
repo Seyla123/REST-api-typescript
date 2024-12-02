@@ -6,7 +6,7 @@ on:
       - main  # Adjust as needed
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
     outputs:
       dist-path: ${{ steps.upload-artifact.outputs.artifact-path }}
